@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_044459) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "location"
+    t.string "description"
     t.string "image"
     t.integer "like"
   end
