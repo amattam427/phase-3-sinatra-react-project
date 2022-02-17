@@ -6,7 +6,7 @@ class ReviewController < ApplicationController
     
       get "/reviews/:id" do 
         reviews = Review.find(params[:id])
-        reviews.to_json
+        reviews.to_json(include: {accommodation: {only: [:id, :name, :location, :description, :image]}})
       end
     
       post "/reviews" do 
