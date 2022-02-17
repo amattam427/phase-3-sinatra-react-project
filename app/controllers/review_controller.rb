@@ -4,10 +4,15 @@ class ReviewController < ApplicationController
         reviews.to_json
       end
     
-      get "/reviews/:id" do 
+    #   get "/reviews/:id" do 
+    #     reviews = Review.find(params[:id])
+    #     reviews.to_json(include: {accommodation: {only: [:id, :name, :location, :description, :image]}})
+    #   end
+
+    get "/reviews/:id" do
         reviews = Review.find(params[:id])
-        reviews.to_json(include: {accommodation: {only: [:id, :name, :location, :description, :image]}})
-      end
+        reviews.to_json
+    end
     
       post "/reviews" do 
         review = Review.create(
