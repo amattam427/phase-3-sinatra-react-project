@@ -6,10 +6,10 @@ class ApplicationController < Sinatra::Base
     accommodations.to_json
   end
 
-  get "/accommodations/:id" do
-    accommodation = Accommodation.find(params[:id])
-    accommodation.to_json(only: [:id, :name, :location, :description, :image], include: [:reviews])
-  end
+  # get "/accommodations/:id" do
+  #   accommodation = Accommodation.find(params[:id])
+  #   accommodation.to_json(only: [:id, :name, :location, :description, :image], include: [:reviews])
+  # end
 
   get "/accommodations/likes/:id" do
     accommodation = Accommodation.find(params[:id])
@@ -24,23 +24,6 @@ class ApplicationController < Sinatra::Base
     accommodation.to_json
   end
 
-  # get "/reviews" do 
-  #   reviews = Review.all
-  #   reviews.to_json
-  # end
-
-  # get "/reviews/:id" do 
-  #   reviews = Review.find(params[:id])
-  #   reviews.to_json
-  # end
-
-  # post "/reviews" do 
-  #   review = Review.create(
-  #     comment: params[:comment],
-  #     accommodation_id: params[:accommodation_id]
-  #   )
-  #   review.to_json
-  # end
   
   
 
