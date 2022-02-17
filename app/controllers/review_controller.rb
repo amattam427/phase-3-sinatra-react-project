@@ -4,13 +4,9 @@ class ReviewController < ApplicationController
         reviews.to_json
       end
     
-    #   get "/reviews/:id" do 
-    #     reviews = Review.find(params[:id])
-    #     reviews.to_json(include: {accommodation: {only: [:id, :name, :location, :description, :image]}})
-    #   end
 
-    get "/reviews/:id" do
-        reviews = Review.find(params[:id])
+    get "/accommodations/:id/reviews" do
+        reviews = Review.where(accommodation_id: params[:id])
         reviews.to_json
     end
     
