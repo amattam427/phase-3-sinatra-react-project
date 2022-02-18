@@ -3,6 +3,11 @@ class ReviewController < ApplicationController
         reviews = Review.all
         reviews.to_json
       end
+
+    get "/reviews/:id" do
+        reviews=Review.find(params[:id])
+        reviews.to_json
+    end
     
 
     get "/accommodations/:id/reviews" do
@@ -15,6 +20,12 @@ class ReviewController < ApplicationController
           comment: params[:comment],
           accommodation_id: params[:accommodation_id]
         )
+        review.to_json
+      end
+
+      delete '/reviews/:id' do
+        review=Review.find(params[:id])
+        review.destroy
         review.to_json
       end
       
